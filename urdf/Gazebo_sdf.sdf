@@ -1,0 +1,336 @@
+<sdf version='1.7'>
+  <model name='my_robot'>
+  <static>false</static>
+    <link name='Chassis'>
+      <inertial>
+        <pose>-0.001816 -0 -0.011464 0 -0 3.14159</pose>
+        <mass>5.83218</mass>
+        <inertia>
+          <ixx>0.0625905</ixx>
+          <ixy>-6.67162e-08</ixy>
+          <ixz>-0.00149656</ixz>
+          <iyy>0.176567</iyy>
+          <iyz>-7.87178e-09</iyz>
+          <izz>0.230014</izz>
+        </inertia>
+      </inertial>
+      <collision name='Chassis_collision'>
+        <pose>0 0 0 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Chassis.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+      	 <friction>
+          <ode>
+           <mu>0.001</mu>
+           <mu2>0.001</mu2>
+          </ode>
+         </friction>
+       	</surface>
+      </collision>
+      <collision name='Chassis_fixed_joint_lump__Front_Castor_collision_1'>
+        <pose>0.36779 0 -0.1005 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Front_Castor.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+      	 <friction>
+          <ode>
+           <mu>0.01</mu>
+           <mu2>0.01</mu2>
+          </ode>
+         </friction>
+       	</surface>
+      </collision>
+      <collision name='Chassis_fixed_joint_lump__Lower_Base_collision_2'>
+        <pose>-0.068909 0 0.001 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Lower_Base.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='Chassis_fixed_joint_lump__Rear_Castor_collision_3'>
+        <pose>-0.25221 0 -0.1005 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Rear_Castor.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+      	 <friction>
+          <ode>
+           <mu>0.01</mu>
+           <mu2>0.01</mu2>
+          </ode>
+         </friction>
+       	</surface>
+      </collision>
+      <visual name='Chassis_visual'>
+        <pose>0 0 0 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Chassis.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='Chassis_fixed_joint_lump__Front_Castor_visual_1'>
+        <pose>0.36779 0 -0.1005 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Front_Castor.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+         <ambient>1 0.6 0 1</ambient>
+         <diffuse>1 0.6 0 1</diffuse>
+         <specular>0.1 0.1 0.1 1</specular>
+         <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <visual name='Chassis_fixed_joint_lump__Lower_Base_visual_2'>
+        <pose>-0.068909 0 0.001 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Lower_Base.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+         <ambient>0 0 0.75 1</ambient>
+         <diffuse>0 0 0.75 1</diffuse>
+         <specular>0.1 0.1 0.1 1</specular>
+         <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <visual name='Chassis_fixed_joint_lump__Rear_Castor_visual_3'>
+        <pose>-0.25221 0 -0.1005 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Rear_Castor.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+         <ambient>1 0.6 0 1</ambient>
+         <diffuse>1 0.6 0 1</diffuse>
+         <specular>0.1 0.1 0.1 1</specular>
+         <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+    <joint name='Left_Wheel_Joint' type='revolute'>
+      <pose relative_to='Chassis'>0.071091 0.11 -0.098 -1.5708 0 0</pose>
+      <parent>Chassis</parent>
+      <child>Left_Wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>4.5</effort>
+          <velocity>7.3</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Left_Wheel'>
+      <pose relative_to='Left_Wheel_Joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0.034703 0 -0 0</pose>
+        <mass>0.396218</mass>
+        <inertia>
+          <ixx>0.000485123</ixx>
+          <ixy>-2.82104e-20</ixy>
+          <ixz>1.67935e-20</ixz>
+          <iyy>0.000485123</iyy>
+          <iyz>-4.11956e-20</iyz>
+          <izz>0.000874957</izz>
+        </inertia>
+      </inertial>
+      <collision name='Left_Wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Left_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+      	 <friction>
+          <ode>
+           <mu>100</mu>
+           <mu2>100</mu2>
+           <slip1>0.000000</slip1>
+           <slip2>0.000000</slip2>
+          </ode>
+         </friction>
+       	</surface>
+      </collision>
+      <visual name='Left_Wheel_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Left_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+         <ambient>0.3 0.3 0.3 1</ambient>
+         <diffuse>0.3 0.3 0.3 1</diffuse>
+         <specular>0.1 0.1 0.1 1</specular>
+         <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+    <joint name='Upper_Base_Joint' type='prismatic'>
+      <pose relative_to='Chassis'>-0.069066 0 0.041238 0 -0 0</pose>
+      <parent>Chassis</parent>
+      <child>Upper_Base</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.04</upper>
+          <effort>100</effort>
+          <velocity>0.01</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Upper_Base'>
+      <pose relative_to='Upper_Base_Joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.000445 0 0.030399 0 -0 0</pose>
+        <mass>1.3449</mass>
+        <inertia>
+          <ixx>0.012266</ixx>
+          <ixy>2.12906e-11</ixy>
+          <ixz>2.15758e-05</ixz>
+          <iyy>0.0162092</iyy>
+          <iyz>-1.12189e-10</iyz>
+          <izz>0.0277515</izz>
+        </inertia>
+      </inertial>
+      <collision name='Upper_Base_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Upper_Base.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+      	 <friction>
+          <ode>
+           <mu>0.001</mu>
+           <mu2>0.001</mu2>
+          </ode>
+         </friction>
+       	</surface>
+      </collision>
+      <visual name='Upper_Base_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Upper_Base.STL</uri>
+          </mesh>
+        </geometry>
+       <material>
+         <ambient>0 0 0.75 1</ambient>
+         <diffuse>0 0 0.75 1</diffuse>
+         <specular>0.1 0.1 0.1 1</specular>
+         <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+    <joint name='Right_Wheel_Joint' type='revolute'>
+      <pose relative_to='Chassis'>0.071091 -0.11 -0.098 1.5708 -0 0</pose>
+      <parent>Chassis</parent>
+      <child>Right_Wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>4.5</effort>
+          <velocity>7.3</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Right_Wheel'>
+      <pose relative_to='Right_Wheel_Joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.034703 0 -0 0</pose>
+        <mass>0.396218</mass>
+        <inertia>
+          <ixx>0.000485123</ixx>
+          <ixy>5.99007e-21</ixy>
+          <ixz>2.30795e-20</ixz>
+          <iyy>0.000485123</iyy>
+          <iyz>-4.42496e-21</iyz>
+          <izz>0.000874957</izz>
+        </inertia>
+      </inertial>
+      <collision name='Right_Wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Right_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+      	 <friction>
+          <ode>
+           <mu>100</mu>
+           <mu2>100</mu2>
+           <slip1>0.000000</slip1>
+           <slip2>0.000000</slip2>
+          </ode>
+         </friction>
+       	</surface>
+      </collision>
+      <visual name='Right_Wheel_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://my_robot/meshes/Right_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+         <ambient>0.3 0.3 0.3 1</ambient>
+         <diffuse>0.3 0.3 0.3 1</diffuse>
+         <specular>0.1 0.1 0.1 1</specular>
+         <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
