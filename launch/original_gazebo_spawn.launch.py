@@ -4,6 +4,9 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
+    # Specify the name of the package and path to xacro file within the package
+    # Specify the name of the package and path to xacro file within the package
+    # Specify the name of the package and path to xacro file within the package
 
 from launch_ros.actions import Node
 import xacro
